@@ -1,11 +1,11 @@
 var express = require("express");
 var router = express.Router();
-const todoController = require("../controllers/todoController");
+const todoController = require("../controller/todoController");
 
 /* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.send("respond with a resource");
-});
+// router.get("/tasks", function (req, res, next) {
+//   res.send("respond with a resource");
+// });
 
 /********************MAIN ROUTES********************/
 
@@ -13,18 +13,18 @@ router.get("/", function (req, res, next) {
 router.get("/tasks", todoController.getAllTasks);
 
 // POST a new task
-router.post("/tasks", todoController.createTask);
+router.post("/new-task", todoController.createTask);
 
 // GET a task by id
 router.get("/tasks/:id", todoController.getTaskById);
 
 // PUT a task by id
-router.put("/tasks/:id", todoController.updateTaskById);
+router.put("/update-task/:id", todoController.updateTaskById);
 
 // DELETE a task by id
-router.delete("/tasks/:id", todoController.deleteTaskById);
+router.delete("/delete-task/:id", todoController.deleteTaskById);
 
 // DELETE all tasks
-router.delete("/tasks", todoController.deleteAllTasks);
+router.delete("/delete-tasks", todoController.deleteAllTasks);
 
 module.exports = router;
